@@ -1,0 +1,6 @@
+framework module Pods_ModesoWheelDemo {
+  umbrella header "Pods-ModesoWheelDemo-umbrella.h"
+
+  export *
+  module * { export * }
+}
