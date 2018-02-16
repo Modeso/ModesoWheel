@@ -13,11 +13,7 @@ extension UIView {
      Load the UIView from the .xib file using the Bundle and nib name
      */
     @discardableResult func loadFromNib < T: UIView >() -> T? {
-//			let podBundle = Bundle(for: self.classForCoder)
-//		guard let bundleURL = podBundle.url(forResource: "ModesoWheel", withExtension: "bundle"), let bundle = Bundle(url: bundleURL)else {
-//				return nil
-//			}
-        guard let view = UINib(nibName: "ModesoWheel", bundle: Bundle.main).instantiate(withOwner: nil, options: nil)[0] as? T else {
+        guard let view = Bundle(for: self.classForCoder).loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)?[0] as? T else {
             return nil
         }
         view.frame = bounds

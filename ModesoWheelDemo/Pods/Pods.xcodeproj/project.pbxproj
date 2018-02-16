@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,7 +14,7 @@
 		5A3A78C4051CBA0EF62AC401572DBFF4 /* ModesoWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E597C4047BFC939CF19C6E500030FAA /* ModesoWheel.swift */; };
 		5BC234241DB9F7EE354ADEB48A625C4A /* ModesoWheel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F99CBC24FE346728C27A0714EE124E /* ModesoWheel-dummy.m */; };
 		6F4EDF3FD0FF4656776352BE30B35364 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8425E1D7BADFB567A67DA5A04482B5 /* UIFont+Extension.swift */; };
-		9FF86E9B6609C3B664F7E00CC35340EF /* ModesoWheel.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC504287DE9050D982835F1FAF12C341 /* ModesoWheel.xib */; };
+		6FFE3B882035D05C0032C84A /* ModesoWheel.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC504287DE9050D982835F1FAF12C341 /* ModesoWheel.xib */; };
 		A0BA1219CCB03CA639FBFE876677D4CA /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F895B3C53553955CF224F387FED8863 /* Utilities.swift */; };
 		A801F138B93C4D1F63B97781C54CDE53 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */; };
 		CCE3C1A3C60FF308AE53F59A6AE6DB3C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
@@ -41,7 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		081691EFCBD0DEC6C58B94A3395C2974 /* Pods-ModesoWheelDemo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-ModesoWheelDemo.modulemap"; sourceTree = "<group>"; };
+		081691EFCBD0DEC6C58B94A3395C2974 /* Pods-ModesoWheelDemo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-ModesoWheelDemo.modulemap"; sourceTree = "<group>"; };
 		0AA29D68AF162DBF8B6BD68230764657 /* Pods-ModesoWheelDemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ModesoWheelDemo-acknowledgements.plist"; sourceTree = "<group>"; };
 		0DA3C4B0B4E62BA24EB64185CD29A389 /* ModesoWheel-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ModesoWheel-umbrella.h"; sourceTree = "<group>"; };
 		28F99CBC24FE346728C27A0714EE124E /* ModesoWheel-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ModesoWheel-dummy.m"; sourceTree = "<group>"; };
@@ -50,26 +50,26 @@
 		3917A016A2C307A12AC4A5CDBB65F61E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4023C134F42B708E4114BD449871E6A6 /* ModesoWheel.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ModesoWheel.xcconfig; sourceTree = "<group>"; };
 		4094B04143670019FD69676B51EBD464 /* UIView+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+Extension.swift"; path = "ModesoWheel/ModesoWheel/Sources/UIView+Extension.swift"; sourceTree = "<group>"; };
-		4A1828E97D5E98EABBAB2CDF39453CA1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		4A1828E97D5E98EABBAB2CDF39453CA1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		52E011D9A2F3AE367235441710107021 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E597C4047BFC939CF19C6E500030FAA /* ModesoWheel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ModesoWheel.swift; path = ModesoWheel/ModesoWheel/Sources/ModesoWheel.swift; sourceTree = "<group>"; };
-		5F7A57018B71A96545F2B26A7CF825B3 /* ModesoWheel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ModesoWheel.framework; path = ModesoWheel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F7A57018B71A96545F2B26A7CF825B3 /* ModesoWheel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ModesoWheel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61A85990CFBCE3E5665178E1DB536A2C /* Pods-ModesoWheelDemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ModesoWheelDemo-acknowledgements.markdown"; sourceTree = "<group>"; };
 		70EF5B60F1B6FF8437B94917FB113D63 /* ModesoWheel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ModesoWheel-prefix.pch"; sourceTree = "<group>"; };
-		712539FFA8B8430F40B54D3192634C08 /* Pods_ModesoWheelDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ModesoWheelDemo.framework; path = "Pods-ModesoWheelDemo.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		712539FFA8B8430F40B54D3192634C08 /* Pods_ModesoWheelDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ModesoWheelDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79185E70F4CBC054FC4D61BE30385C6A /* Pods-ModesoWheelDemo-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ModesoWheelDemo-resources.sh"; sourceTree = "<group>"; };
 		7E8425E1D7BADFB567A67DA5A04482B5 /* UIFont+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIFont+Extension.swift"; path = "ModesoWheel/ModesoWheel/Sources/UIFont+Extension.swift"; sourceTree = "<group>"; };
-		7FD2DFBA8EA3C24BADE50A6E48086143 /* ModesoWheel.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = ModesoWheel.modulemap; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		7FD2DFBA8EA3C24BADE50A6E48086143 /* ModesoWheel.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = ModesoWheel.modulemap; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9AAABA64118B0B56C7BAB521C7C7FC9B /* Pods-ModesoWheelDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ModesoWheelDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		A92315775F23A17FF60934EAB44724D9 /* ModesoWheel.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = ModesoWheel.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A92315775F23A17FF60934EAB44724D9 /* ModesoWheel.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; path = ModesoWheel.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		AC504287DE9050D982835F1FAF12C341 /* ModesoWheel.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = ModesoWheel.xib; path = ModesoWheel/ModesoWheel/Sources/ModesoWheel.xib; sourceTree = "<group>"; };
 		B11E981ABA7B257C4F1BF288C13C965C /* Pods-ModesoWheelDemo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ModesoWheelDemo-umbrella.h"; sourceTree = "<group>"; };
 		B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		D35EEF652A7122CEB52E921D2B0A9ED1 /* Pods-ModesoWheelDemo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ModesoWheelDemo-frameworks.sh"; sourceTree = "<group>"; };
 		D507336AC7D13FED94D9DBC31489BF64 /* Pods-ModesoWheelDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ModesoWheelDemo.release.xcconfig"; sourceTree = "<group>"; };
 		D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		E60D8349EDBA931D59BB0D497B64C7B5 /* MyFramework.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = MyFramework.bundle; path = "ModesoWheel-MyFramework.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E60D8349EDBA931D59BB0D497B64C7B5 /* MyFramework.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyFramework.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8591B075ED4B94588B1852FA2B666FD /* ResourceBundle-MyFramework-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-MyFramework-Info.plist"; sourceTree = "<group>"; };
 		F36CEC4DEDEDC85C1CE41EAFB3932CD3 /* UIColor+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIColor+Extension.swift"; path = "ModesoWheel/ModesoWheel/Sources/UIColor+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -331,6 +331,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FFE3B882035D05C0032C84A /* ModesoWheel.xib in Resources */,
 				DF20EF2C4CE0723232E1F607673B6D7F /* MyFramework.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,7 +340,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9FF86E9B6609C3B664F7E00CC35340EF /* ModesoWheel.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
