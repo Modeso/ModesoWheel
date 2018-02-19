@@ -15,7 +15,7 @@ import UIKit
      */
     func resizeWheel(_ view: ModesoWheel, to height: CGFloat)
     /**
-     This method called when tap on the wheel to close any other oppened wheels
+     This method called when tap on the wheel did become active
      */
     func wheelTapped(_ view: ModesoWheel)
     /**
