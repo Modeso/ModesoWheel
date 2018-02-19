@@ -18,25 +18,72 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2xx-2w-vTc" customClass="ModesoWheel" customModule="ModesoWheel">
-                                <rect key="frame" x="47" y="150" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3bo-xG-Pq0">
+                                <rect key="frame" x="0.0" y="20" width="375" height="350"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="BOq-sA-Jy9">
+                                        <rect key="frame" x="112.5" y="100" width="150" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="COJ-OK-njc"/>
+                                            <constraint firstAttribute="height" constant="150" id="vUm-td-K41"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.039215686270000001" green="0.0" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="BOq-sA-Jy9" firstAttribute="centerX" secondItem="3bo-xG-Pq0" secondAttribute="centerX" id="Gl3-WA-2Mj"/>
+                                    <constraint firstItem="BOq-sA-Jy9" firstAttribute="centerY" secondItem="3bo-xG-Pq0" secondAttribute="centerY" id="OLg-vD-gC9"/>
+                                    <constraint firstAttribute="height" constant="350" id="dj4-aM-cap"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SelectedValue: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xa0-n4-CDX">
+                                <rect key="frame" x="20" y="418" width="121.5" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="O4g-ku-uAg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <color key="textColor" red="0.039215686270000001" green="0.0" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2xx-2w-vTc" customClass="ModesoWheel" customModule="ModesoWheel">
+                                <rect key="frame" x="259" y="418" width="100" height="65"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="h1g-AZ-v9C"/>
+                                    <constraint firstAttribute="width" constant="100" id="y2l-fd-bJh"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="inputTitle" value="Count"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="defaultInputValue" value="5"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Xa0-n4-CDX" secondAttribute="bottom" constant="200" id="Bnh-jf-iIb"/>
+                            <constraint firstItem="Xa0-n4-CDX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="JsN-Fw-90M"/>
+                            <constraint firstItem="2xx-2w-vTc" firstAttribute="leading" secondItem="Xa0-n4-CDX" secondAttribute="trailing" constant="30" id="Rbn-QG-nzi"/>
+                            <constraint firstItem="3bo-xG-Pq0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Rrb-jF-SsG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2xx-2w-vTc" secondAttribute="bottom" constant="195" id="aKX-zT-QWh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2xx-2w-vTc" secondAttribute="trailing" constant="20" id="gB9-Ow-Nvl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3bo-xG-Pq0" secondAttribute="trailing" id="j8S-bO-UcK"/>
+                            <constraint firstItem="3bo-xG-Pq0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="kfh-kx-GKT"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="selectedValueLabel" destination="Xa0-n4-CDX" id="hgC-nr-Uxw"/>
                         <outlet property="wheel" destination="2xx-2w-vTc" id="2mr-O6-DfR"/>
+                        <outlet property="wheelBottomConstraint" destination="aKX-zT-QWh" id="Vop-P4-fwz"/>
+                        <outlet property="wheelHeightConstraint" destination="h1g-AZ-v9C" id="cbP-lw-iBY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="118.29085457271366"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo" width="83" height="83"/>
+    </resources>
 </document>

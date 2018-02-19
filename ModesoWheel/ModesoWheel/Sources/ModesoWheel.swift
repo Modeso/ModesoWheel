@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc protocol ModesoWheelDelegate {
+@objc public protocol ModesoWheelDelegate {
     /**
      This method called when open and dismiss the wheel to resize the container
      view to the current size to be able to select and scroll rows
@@ -24,7 +24,7 @@ import UIKit
     func wheelDidSelectValue(_ view: ModesoWheel)
 }
 
-@IBDesignable class ModesoWheel: UIView {
+@IBDesignable public class ModesoWheel: UIView {
 	
 	enum Const {
 		static let titleHeight: CGFloat = 25.0
@@ -71,9 +71,9 @@ import UIKit
         }
     }
     
-    var wheelData = [String]()
-    var separatorColor: UIColor? = UIColor.mbeCoolBlue
-    weak var delegate: ModesoWheelDelegate?
+	var wheelData = [String]()
+	var separatorColor: UIColor? = UIColor.mbeCoolBlue
+    public weak var delegate: ModesoWheelDelegate?
     // MARK: - Private Variables
     private var currentSelectedValue: String?
     private var rowHeight: CGFloat = Const.rowHeight
@@ -88,20 +88,21 @@ import UIKit
     @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var separatorViewBottomConstraint: NSLayoutConstraint!
     // MARK: - Init
-    required init?(coder aDecoder: NSCoder) {
+	required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 		self.loadFromNib()
 		self.tableView?.register(WheelTableViewCell.classForCoder(), forCellReuseIdentifier: Const.tableViewCellIdentifier)
 		self.tableView?.delegate = self
     }
     
-    override func draw(_ rect: CGRect) {
+	override public func draw(_ rect: CGRect) {
         setupUIText()
         self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(expandTableView(_:))))
         self.isUserInteractionEnabled = true
     }
     
-    func configure(withData data: [String], defaultValue: String) {
+    public func configure(withData data: [String], defaultValue: String) {
+        self.rowHeight = self.frame.height - Const.titleHeight
         self.wheelData = data
         currentSelectedValue = defaultValue
         self.tableView.reloadData()
@@ -112,7 +113,7 @@ import UIKit
 		self.valueLabel.isHidden = false
 		self.tableView.isHidden = true
     }
-	func dismiss() {
+	public func dismiss() {
 		if isExpanded {
 			isExpanded = false
 			if let index = self.wheelData.index(of: self.getSelectedValue()) {
@@ -128,7 +129,7 @@ import UIKit
 			self.isUserInteractionEnabled = true
 		}
 	}
-	func getSelectedValue() -> String {
+	public func getSelectedValue() -> String {
 		return currentSelectedValue ?? ""
 	}
 	func setSelectedValue(_ value: String) {
@@ -187,7 +188,7 @@ import UIKit
 }
 // MARK: - TableView DataSource
 extension ModesoWheel: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+	public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
 		guard let cell = tableView.dequeueReusableCell(withIdentifier: Const.tableViewCellIdentifier, for: indexPath) as? WheelTableViewCell else {
 			return WheelTableViewCell()
@@ -205,7 +206,7 @@ extension ModesoWheel: UITableViewDataSource {
         cell.titleLabel.attributedText = Utilities.attributedText(text, font: UIFont.mbeMedium36Font(), letterSpacing: UIFont.LetterSpacing.narrow, color: isSelected ? UIColor.mbeCoolBlue : UIColor.mbeSteel)
         return cell
     }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+	public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard self.wheelData.count > 0 else {
             return 0
         }
@@ -214,7 +215,7 @@ extension ModesoWheel: UITableViewDataSource {
 }
 // MARK: - TableView Delegate
 extension ModesoWheel: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+	public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		if indexPath.row == ((self.wheelData.index(of: self.getSelectedValue()) ?? 0) + 1) {
 			self.dismiss()
 			return

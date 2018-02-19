@@ -28,5 +28,6 @@ Pod::Spec.new do |s|
 
   # 8
   s.source_files = "ModesoWheel/**/*.{swift,storyboard,xib}"
+  s.exclude_files = "Classes/Exclude"
 
 end

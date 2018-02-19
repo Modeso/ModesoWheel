@@ -19,5 +19,6 @@
     "tag": "0.1.0"
   },
   "frameworks": "UIKit",
-  "source_files": "ModesoWheel/**/*.{swift,storyboard,xib}"
+  "source_files": "ModesoWheel/**/*.{swift,storyboard,xib}",
+  "exclude_files": "Classes/Exclude"
 }
