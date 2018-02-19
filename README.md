@@ -11,7 +11,7 @@ A framework based on [Modeso](https://www.modeso.ch)'s design for creating a whe
 
 ## Overview
 
-<img src="ModesoQuestionnaireDemo/Media/Example.gif" />
+<img src="ModesoWheelDemo/Media/Example.gif" />
 
 ## Contents
 
