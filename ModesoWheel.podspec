@@ -27,9 +27,6 @@ Pod::Spec.new do |s|
   #s.dependency 'SwiftLint'
 
   # 8
-  s.source_files = "ModesoWheel/**/*.{swift}"
-s.resource_bundles = {
-    'MyFramework' => ['ModesoWheel/**/*.{storyboard,xib}']
-  }
+  s.source_files = "ModesoWheel/**/*.{swift,storyboard,xib}"
 
 end
