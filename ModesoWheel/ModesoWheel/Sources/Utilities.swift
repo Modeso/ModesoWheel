@@ -23,9 +23,7 @@ class Utilities {
 	 - attributedText: generated NSMutableAttributedString objects.
      */
     static func attributedText(_ text: String, font: UIFont, letterSpacing: Double, color: UIColor) -> NSMutableAttributedString {
-        let attributedText = NSMutableAttributedString(string: text, attributes: [NSAttributedStringKey.kern: letterSpacing])
-        attributedText.addAttribute(NSAttributedStringKey.font, value: font, range: NSRange(location: 0, length: text.count))
-        attributedText.addAttribute(.foregroundColor, value: color, range: NSRange(location: 0, length: text.count))
+        let attributedText = NSMutableAttributedString(string: text, attributes: [NSAttributedStringKey.kern: letterSpacing, NSAttributedStringKey.font: font, NSAttributedStringKey.foregroundColor: color])
         return attributedText
     }
 }

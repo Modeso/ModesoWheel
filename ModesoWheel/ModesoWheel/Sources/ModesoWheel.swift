@@ -36,10 +36,10 @@ import UIKit
     // MARK: - IBInspectable Elements
     @IBInspectable var inputTitle: String? {
         get {
-            return titleLabel.text
+            return self.title
         }
-        set(title) {
-            titleLabel.text = title
+        set(value) {
+            self.title = value
         }
     }
     
@@ -76,6 +76,7 @@ import UIKit
     public weak var delegate: ModesoWheelDelegate?
     // MARK: - Private Variables
     private var currentSelectedValue: String?
+    private var title: String?
     private var rowHeight: CGFloat = Const.rowHeight
     private var bgColor: UIColor?
     private var isExpanded = false
@@ -102,7 +103,7 @@ import UIKit
     }
     
     public func configure(withData data: [String], defaultValue: String) {
-        self.rowHeight = self.frame.height - Const.titleHeight
+        self.titleLabel.attributedText = Utilities.attributedText(title ?? "", font: UIFont.mbeRegular15Font(), letterSpacing: UIFont.LetterSpacing.narrow, color: UIColor.mbeSteel)
         self.wheelData = data
         currentSelectedValue = defaultValue
         self.tableView.reloadData()
@@ -193,17 +194,14 @@ extension ModesoWheel: UITableViewDataSource {
 		guard let cell = tableView.dequeueReusableCell(withIdentifier: Const.tableViewCellIdentifier, for: indexPath) as? WheelTableViewCell else {
 			return WheelTableViewCell()
 		}
-        cell.selectionStyle = .none
-        cell.backgroundColor = bgColor ?? UIColor.white
-		cell.titleLabel.frame = CGRect(x: 0.0, y: 0.0, width: self.frame.width, height: self.rowHeight)
-		cell.contentView.addSubview(cell.titleLabel)
         guard indexPath.row > 0, indexPath.row <= wheelData.count else {
-            cell.titleLabel.text = ""
+            cell.configure(withHeight: self.rowHeight, backgroundColor: bgColor ?? UIColor.white, title: nil, isSelected: false)
             return cell
         }
 		let isSelected = ((self.wheelData.index(of: self.getSelectedValue()) ?? 0) + 1) == indexPath.row
         let text = self.wheelData[indexPath.row - 1]
-        cell.titleLabel.attributedText = Utilities.attributedText(text, font: UIFont.mbeMedium36Font(), letterSpacing: UIFont.LetterSpacing.narrow, color: isSelected ? UIColor.mbeCoolBlue : UIColor.mbeSteel)
+        
+        cell.configure(withHeight: self.rowHeight, backgroundColor: bgColor ?? UIColor.white, title: text, isSelected: isSelected)
         return cell
     }
 	public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -244,6 +242,20 @@ private class WheelTableViewCell: UITableViewCell {
 	}()
 	
 	var customView: UIView?
+    
+    func configure(withHeight height: CGFloat, backgroundColor: UIColor, title: String?, isSelected: Bool) {
+        DispatchQueue.main.async {
+            self.selectionStyle = .none
+            self.backgroundColor = backgroundColor
+            self.titleLabel.frame = CGRect(x: 0.0, y: 0.0, width: self.frame.width, height: height)
+            self.contentView.addSubview(self.titleLabel)
+            guard let text = title else {
+                self.titleLabel.text = ""
+                return
+            }
+            self.titleLabel.attributedText = Utilities.attributedText(text, font: UIFont.mbeMedium36Font(), letterSpacing: UIFont.LetterSpacing.narrow, color: isSelected ? UIColor.mbeCoolBlue : UIColor.mbeSteel)
+        }
+    }
 }
 extension ModesoWheel: UIScrollViewDelegate {
 	

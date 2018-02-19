@@ -12,8 +12,8 @@ import ModesoWheel
 class ViewController: UIViewController {
     
     enum Const {
-        static let wheelBottomSpacing: CGFloat = 195.0
-        static let wheelIndicatorSpacing: CGFloat = 15.0
+        static let wheelBottomSpacing: CGFloat = 155.0
+        static let wheelIndicatorSpacing: CGFloat = 20.0
         static let wheelData = ["1","2","3","4","5","6","7","8","9","10"]
         static let wheelInitalValue = "5"
         static let labelText = "Selected Value: "
