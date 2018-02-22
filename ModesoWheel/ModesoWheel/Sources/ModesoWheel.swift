@@ -34,7 +34,7 @@ import UIKit
 	}
     
     // MARK: - IBInspectable Elements
-    @IBInspectable var title: String {
+    @IBInspectable public var title: String {
         get {
             return self.titleText
         }
@@ -43,7 +43,7 @@ import UIKit
         }
     }
     
-    @IBInspectable var defaultValue: String? {
+    @IBInspectable public var defaultValue: String? {
         get {
             return currentSelectedValue
         }
@@ -52,7 +52,7 @@ import UIKit
         }
     }
     
-    @IBInspectable var optionsBackgroundColor: UIColor {
+    @IBInspectable public var optionsBackgroundColor: UIColor {
         get {
             return self.bgColor
         }
@@ -61,7 +61,7 @@ import UIKit
         }
     }
     
-    @IBInspectable var selectColor: UIColor {
+    @IBInspectable public var selectColor: UIColor {
         get {
             return self.separatorColor
         }
@@ -71,7 +71,7 @@ import UIKit
         }
     }
 	
-	@IBInspectable var optionsColor: UIColor {
+	@IBInspectable public var optionsColor: UIColor {
 		get {
 			return self.optionsTextColor
 		}
@@ -79,7 +79,7 @@ import UIKit
 			self.optionsTextColor = color
 		}
 	}
-	@IBInspectable var titleColor: UIColor {
+	@IBInspectable public var titleColor: UIColor {
 		get {
 			return self.titleTextColor
 		}
@@ -87,7 +87,7 @@ import UIKit
 			self.titleTextColor = color
 		}
 	}
-	@IBInspectable var titleFont: UIFont {
+	@IBInspectable public var titleFont: UIFont {
 		get {
 			return self.titleTextFont
 		}
@@ -95,7 +95,7 @@ import UIKit
 			self.titleTextFont = font
 		}
 	}
-	@IBInspectable var optionsFont: UIFont {
+	@IBInspectable public var optionsFont: UIFont {
 		get {
 			return self.optionsTextFont
 		}
@@ -103,7 +103,7 @@ import UIKit
 			self.optionsTextFont = font
 		}
 	}
-	@IBInspectable var optionsHeight: CGFloat {
+	@IBInspectable public var optionsHeight: CGFloat {
 		get {
 			return self.rowHeight
 		}
