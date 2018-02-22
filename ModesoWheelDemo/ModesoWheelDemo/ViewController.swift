@@ -14,20 +14,35 @@ class ViewController: UIViewController {
     enum Const {
         static let wheelBottomSpacing: CGFloat = 155.0
         static let wheelIndicatorSpacing: CGFloat = 20.0
-        static let wheelData = ["1","2","3","4","5","6","7","8","9","10"]
-        static let wheelInitalValue = "5"
-        static let labelText = "Selected Value: "
+        static let days = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30"]
+		static let months = ["January","February","March","April","May","June","July","August","September","October","November","December"]
+		static let gender = ["Male","Female"]
+        static let dayInitalValue = "5"
+		static let genderInitalValue = "Female"
+		static let monthInitalValue = "March"
+        static let labelText = "Selected Values are: "
+		static let comma = ", "
     }
 
-    @IBOutlet weak var wheelBottomConstraint: NSLayoutConstraint!
+	@IBOutlet weak var monthWheelHeightConstraint: NSLayoutConstraint!
+	@IBOutlet weak var genderWheelHeightConstraint: NSLayoutConstraint!
+	@IBOutlet weak var monthsWheelBottomConstraint: NSLayoutConstraint!
+	@IBOutlet weak var genderWheelBottomConstraint: NSLayoutConstraint!
+	@IBOutlet weak var monthsWheel: ModesoWheel!
+	@IBOutlet weak var genderWheel: ModesoWheel!
+	@IBOutlet weak var daysWheelBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var selectedValueLabel: UILabel!
-    @IBOutlet weak var wheelHeightConstraint: NSLayoutConstraint!
-	@IBOutlet weak var wheel: ModesoWheel!
+    @IBOutlet weak var daysWheelHeightConstraint: NSLayoutConstraint!
+	@IBOutlet weak var daysWheel: ModesoWheel!
     override func viewDidLoad() {
 		super.viewDidLoad()
-		self.wheel.configure(withData: Const.wheelData, defaultValue: Const.wheelInitalValue)
-		self.wheel.delegate = self
-        self.selectedValueLabel.text = Const.labelText + Const.wheelInitalValue
+		self.daysWheel.configure(withData: Const.days, defaultValue: Const.dayInitalValue)
+		self.daysWheel.delegate = self
+		self.monthsWheel.configure(withData: Const.months, defaultValue: Const.monthInitalValue)
+		self.monthsWheel.delegate = self
+		self.genderWheel.configure(withData: Const.gender, defaultValue: Const.genderInitalValue)
+		self.genderWheel.delegate = self
+        self.selectedValueLabel.text = Const.labelText + Const.genderInitalValue + Const.comma + Const.monthInitalValue + Const.comma + Const.dayInitalValue
         dismissWheelWhenTappingAround()
 	}
     
@@ -38,7 +53,9 @@ class ViewController: UIViewController {
     }
     
     @objc func dismissWheel() {
-        self.wheel.dismiss()
+        self.daysWheel.dismiss()
+		self.monthsWheel.dismiss()
+		self.genderWheel.dismiss()
     }
 }
 extension ViewController: UIGestureRecognizerDelegate {
@@ -52,15 +69,32 @@ extension ViewController: UIGestureRecognizerDelegate {
 }
 extension ViewController: ModesoWheelDelegate {
     func resizeWheel(_ view: ModesoWheel, to height: CGFloat) {
-        self.wheelHeightConstraint.constant = height
-        self.wheelBottomConstraint.constant = self.wheelBottomConstraint.constant == Const.wheelBottomSpacing ? Const.wheelBottomSpacing - Const.wheelIndicatorSpacing : Const.wheelBottomSpacing
+		if view == self.daysWheel {
+        	self.daysWheelHeightConstraint.constant = height
+        	self.daysWheelBottomConstraint.constant = self.daysWheelBottomConstraint.constant == Const.wheelBottomSpacing ? Const.wheelBottomSpacing - Const.wheelIndicatorSpacing : Const.wheelBottomSpacing
+		} else if view == self.monthsWheel {
+			self.monthWheelHeightConstraint.constant = height
+			self.monthsWheelBottomConstraint.constant = self.monthsWheelBottomConstraint.constant == Const.wheelBottomSpacing ? Const.wheelBottomSpacing - Const.wheelIndicatorSpacing : Const.wheelBottomSpacing
+		} else {
+			self.genderWheelHeightConstraint.constant = height
+			self.genderWheelBottomConstraint.constant = self.genderWheelBottomConstraint.constant == Const.wheelBottomSpacing ? Const.wheelBottomSpacing - Const.wheelIndicatorSpacing : Const.wheelBottomSpacing
+		}
     }
     
     func wheelTapped(_ view: ModesoWheel) {
-        self.selectedValueLabel.text = Const.labelText + self.wheel.getSelectedValue()
+		if view == self.genderWheel {
+			self.monthsWheel.dismiss()
+			self.daysWheel.dismiss()
+		} else if view == self.monthsWheel {
+			self.genderWheel.dismiss()
+			self.daysWheel.dismiss()
+		} else {
+			self.monthsWheel.dismiss()
+			self.genderWheel.dismiss()
+		}
     }
     
     func wheelDidSelectValue(_ view: ModesoWheel) {
-        self.selectedValueLabel.text = Const.labelText + self.wheel.getSelectedValue()
+        self.selectedValueLabel.text = Const.labelText + self.genderWheel.getSelectedValue() + Const.comma + self.monthsWheel.getSelectedValue() + Const.comma + self.daysWheel.getSelectedValue()
     }
 }
