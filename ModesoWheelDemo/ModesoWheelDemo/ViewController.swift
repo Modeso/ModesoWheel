@@ -12,14 +12,14 @@ import ModesoWheel
 class ViewController: UIViewController {
     
     enum Const {
-        static let wheelBottomSpacing: CGFloat = 155.0
+        static let wheelBottomSpacing: CGFloat = 135.0
         static let wheelIndicatorSpacing: CGFloat = 20.0
         static let days = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30"]
 		static let months = ["January","February","March","April","May","June","July","August","September","October","November","December"]
 		static let gender = ["Male","Female"]
-        static let dayInitalValue = "5"
-		static let genderInitalValue = "Female"
-		static let monthInitalValue = "March"
+        static let dayInitalValue = "2"
+		static let genderInitalValue = "Male"
+		static let monthInitalValue = "February"
         static let labelText = "Selected Values are: "
 		static let comma = ", "
     }
@@ -36,12 +36,12 @@ class ViewController: UIViewController {
 	@IBOutlet weak var daysWheel: ModesoWheel!
     override func viewDidLoad() {
 		super.viewDidLoad()
-		self.daysWheel.configure(withData: Const.days, defaultValue: Const.dayInitalValue)
 		self.daysWheel.delegate = self
-		self.monthsWheel.configure(withData: Const.months, defaultValue: Const.monthInitalValue)
 		self.monthsWheel.delegate = self
-		self.genderWheel.configure(withData: Const.gender, defaultValue: Const.genderInitalValue)
 		self.genderWheel.delegate = self
+		self.daysWheel.configure(withData: Const.days, defaultValue: Const.dayInitalValue)
+		self.monthsWheel.configure(withData: Const.months, defaultValue: Const.monthInitalValue)
+		self.genderWheel.configure(withData: Const.gender, defaultValue: Const.genderInitalValue)
         self.selectedValueLabel.text = Const.labelText + Const.genderInitalValue + Const.comma + Const.monthInitalValue + Const.comma + Const.dayInitalValue
         dismissWheelWhenTappingAround()
 	}
@@ -71,13 +71,13 @@ extension ViewController: ModesoWheelDelegate {
     func resizeWheel(_ view: ModesoWheel, to height: CGFloat) {
 		if view == self.daysWheel {
         	self.daysWheelHeightConstraint.constant = height
-        	self.daysWheelBottomConstraint.constant = self.daysWheelBottomConstraint.constant == Const.wheelBottomSpacing ? Const.wheelBottomSpacing - Const.wheelIndicatorSpacing : Const.wheelBottomSpacing
+        	self.daysWheelBottomConstraint.constant = self.daysWheel.isExpanded ? Const.wheelBottomSpacing - Const.wheelIndicatorSpacing : Const.wheelBottomSpacing
 		} else if view == self.monthsWheel {
 			self.monthWheelHeightConstraint.constant = height
-			self.monthsWheelBottomConstraint.constant = self.monthsWheelBottomConstraint.constant == Const.wheelBottomSpacing ? Const.wheelBottomSpacing - Const.wheelIndicatorSpacing : Const.wheelBottomSpacing
+			self.monthsWheelBottomConstraint.constant = self.monthsWheel.isExpanded ? Const.wheelBottomSpacing - Const.wheelIndicatorSpacing : Const.wheelBottomSpacing
 		} else {
 			self.genderWheelHeightConstraint.constant = height
-			self.genderWheelBottomConstraint.constant = self.genderWheelBottomConstraint.constant == Const.wheelBottomSpacing ? Const.wheelBottomSpacing - Const.wheelIndicatorSpacing : Const.wheelBottomSpacing
+			self.genderWheelBottomConstraint.constant = self.genderWheel.isExpanded ? Const.wheelBottomSpacing - Const.wheelIndicatorSpacing : Const.wheelBottomSpacing
 		}
     }
     

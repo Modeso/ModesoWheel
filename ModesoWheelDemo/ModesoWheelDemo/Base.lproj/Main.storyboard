@@ -46,31 +46,30 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2xx-2w-vTc" customClass="ModesoWheel" customModule="ModesoWheel">
-                                <rect key="frame" x="270" y="447" width="50" height="65"/>
+                                <rect key="frame" x="330" y="467" width="50" height="65"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="h1g-AZ-v9C"/>
-                                    <constraint firstAttribute="width" constant="50" id="y2l-fd-bJh"/>
+                                    <constraint firstAttribute="width" constant="50" id="opt-zb-fk1"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="inputTitle" value="Count"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="defaultInputValue" value="5"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="title" value="Day"/>
                                     <userDefinedRuntimeAttribute type="color" keyPath="selectColor">
                                         <color key="value" red="0.043137254901960784" green="0.0" blue="0.32156862745098036" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="optionsHeight">
+                                        <real key="value" value="45"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h9r-uV-4Sq" customClass="ModesoWheel" customModule="ModesoWheel">
-                                <rect key="frame" x="10" y="447" width="130" height="65"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h9r-uV-4Sq" customClass="ModesoWheel" customModule="ModesoWheel">
+                                <rect key="frame" x="5" y="467" width="125" height="65"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="fKJ-Ug-FeO"/>
-                                    <constraint firstAttribute="width" constant="130" id="sS9-ag-iaN"/>
+                                    <constraint firstAttribute="width" constant="125" id="sS9-ag-iaN"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="inputTitle" value="Count"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="defaultInputValue" value="5"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="title" value="Gender"/>
                                     <userDefinedRuntimeAttribute type="color" keyPath="selectColor">
                                         <color key="value" red="0.043137254899999998" green="0.0" blue="0.32156862749999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -78,15 +77,12 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9ym-0I-e8E" customClass="ModesoWheel" customModule="ModesoWheel">
-                                <rect key="frame" x="140" y="447" width="170" height="65"/>
+                                <rect key="frame" x="150" y="447" width="170" height="65"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="170" id="8CA-IO-R7k"/>
                                     <constraint firstAttribute="height" constant="65" id="bxD-30-Nae"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="inputTitle" value="Count"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="defaultInputValue" value="5"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="title" value="Month"/>
                                     <userDefinedRuntimeAttribute type="color" keyPath="selectColor">
                                         <color key="value" red="0.043137254899999998" green="0.0" blue="0.32156862749999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -97,7 +93,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Xa0-n4-CDX" secondAttribute="bottom" constant="30" id="Bnh-jf-iIb"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2xx-2w-vTc" secondAttribute="trailing" constant="10" id="GeR-79-aJp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2xx-2w-vTc" secondAttribute="trailing" constant="4" id="GeR-79-aJp"/>
                             <constraint firstItem="Xa0-n4-CDX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="JsN-Fw-90M"/>
                             <constraint firstItem="3bo-xG-Pq0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Rrb-jF-SsG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="h9r-uV-4Sq" secondAttribute="bottom" constant="155" id="Tjw-Xv-vpJ"/>
@@ -105,9 +101,9 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="9ym-0I-e8E" secondAttribute="bottom" constant="155" id="dVV-eQ-Txy"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3bo-xG-Pq0" secondAttribute="trailing" id="j8S-bO-UcK"/>
                             <constraint firstItem="3bo-xG-Pq0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="kfh-kx-GKT"/>
-                            <constraint firstItem="2xx-2w-vTc" firstAttribute="leading" secondItem="9ym-0I-e8E" secondAttribute="trailing" constant="10" id="p8B-0f-AUp"/>
-                            <constraint firstItem="h9r-uV-4Sq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="v1S-2w-rhq"/>
-                            <constraint firstItem="9ym-0I-e8E" firstAttribute="leading" secondItem="h9r-uV-4Sq" secondAttribute="trailing" constant="10" id="zc9-4T-Tjt"/>
+                            <constraint firstItem="2xx-2w-vTc" firstAttribute="leading" secondItem="9ym-0I-e8E" secondAttribute="trailing" constant="4" id="p8B-0f-AUp"/>
+                            <constraint firstItem="h9r-uV-4Sq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="4" id="v1S-2w-rhq"/>
+                            <constraint firstItem="9ym-0I-e8E" firstAttribute="leading" secondItem="h9r-uV-4Sq" secondAttribute="trailing" constant="4" id="zc9-4T-Tjt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

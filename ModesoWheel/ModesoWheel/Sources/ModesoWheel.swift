@@ -87,6 +87,30 @@ import UIKit
 			self.titleTextColor = color
 		}
 	}
+	@IBInspectable var titleFont: UIFont {
+		get {
+			return self.titleTextFont
+		}
+		set(font) {
+			self.titleTextFont = font
+		}
+	}
+	@IBInspectable var optionsFont: UIFont {
+		get {
+			return self.optionsTextFont
+		}
+		set(font) {
+			self.optionsTextFont = font
+		}
+	}
+	@IBInspectable var optionsHeight: CGFloat {
+		get {
+			return self.rowHeight
+		}
+		set(value) {
+			self.rowHeight = value
+		}
+	}
     
 	var wheelData = [String]()
 	var separatorColor: UIColor = UIColor.mbeCoolBlue
@@ -99,7 +123,9 @@ import UIKit
     private var rowHeight: CGFloat = Const.rowHeight
     private var bgColor: UIColor = UIColor.mbeWhiteTwo
 	private var titlebgColor: UIColor = UIColor.white
-    private var isExpanded = false
+	public var isExpanded = false
+	private var titleTextFont: UIFont = UIFont.mbeRegular15Font()
+	private var optionsTextFont: UIFont = UIFont.mbeMedium36Font()
     
     // MARK: - Outlets
 	@IBOutlet weak var valueLabel: UILabel!
@@ -124,16 +150,17 @@ import UIKit
     }
     
     public func configure(withData data: [String], defaultValue: String) {
-        self.titleLabel.attributedText = Utilities.attributedText(title ?? "", font: UIFont.mbeRegular15Font(), letterSpacing: UIFont.LetterSpacing.narrow, color: self.titleTextColor)
+        self.titleLabel.attributedText = Utilities.attributedText(title ?? "", font: self.titleTextFont, letterSpacing: UIFont.LetterSpacing.narrow, color: self.titleTextColor)
         self.wheelData = data
         currentSelectedValue = defaultValue
         self.tableView.reloadData()
 		if let index = data.index(of: currentSelectedValue ?? "") {
         	self.tableView.selectRow(at: IndexPath(row: index, section: 0), animated: false, scrollPosition: .middle)
 		}
-		self.valueLabel.attributedText = Utilities.attributedText(defaultValue, font: UIFont.mbeMedium36Font(), letterSpacing: UIFont.LetterSpacing.narrow, color: self.separatorColor)
+		self.valueLabel.attributedText = Utilities.attributedText(defaultValue, font: self.optionsTextFont, letterSpacing: UIFont.LetterSpacing.narrow, color: self.separatorColor)
 		self.valueLabel.isHidden = false
 		self.tableView.isHidden = true
+		self.delegate?.resizeWheel(self, to: self.rowHeight + Const.titleHeight + Const.separatorHeight)
     }
 	public func dismiss() {
 		if isExpanded {
@@ -143,8 +170,8 @@ import UIKit
 			}
 			self.tableViewBottomConstraint.constant = Const.titleHeight
 			self.separatorViewBottomConstraint.constant = Const.titleHeight
-			self.delegate?.resizeWheel(self, to: Const.titleHeight + Const.rowHeight + Const.separatorHeight)
-			self.valueLabel.attributedText = Utilities.attributedText(self.getSelectedValue(), font: UIFont.mbeMedium36Font(), letterSpacing: UIFont.LetterSpacing.narrow, color: self.separatorColor)
+			self.delegate?.resizeWheel(self, to: Const.titleHeight + self.rowHeight + Const.separatorHeight)
+			self.valueLabel.attributedText = Utilities.attributedText(self.getSelectedValue(), font: self.optionsTextFont, letterSpacing: UIFont.LetterSpacing.narrow, color: self.separatorColor)
 			self.valueLabel.isHidden = false
 			self.tableView.isHidden = true
 			self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(expandTableView(_:))))
@@ -164,7 +191,7 @@ import UIKit
 			}
 			if indexPath.row > 0 && indexPath.row <= self.wheelData.count {
 				let text = self.wheelData[indexPath.row - 1]
-				cell.titleLabel.attributedText = Utilities.attributedText(text, font: UIFont.mbeMedium36Font(), letterSpacing: UIFont.LetterSpacing.narrow, color: self.separatorColor)
+				cell.setText(text, isSelected: true)
 			}
 			self.tableView.scrollToRow(at: IndexPath(row: index, section: 0), at: .middle, animated: false)
 		}
@@ -178,10 +205,10 @@ import UIKit
 	}
 	private func updateSelectedValue(_ value: String) {
 		currentSelectedValue = value
-		self.valueLabel.attributedText = Utilities.attributedText(value, font: UIFont.mbeMedium36Font(), letterSpacing: UIFont.LetterSpacing.narrow, color: self.separatorColor)
+		self.valueLabel.attributedText = Utilities.attributedText(value, font: self.optionsTextFont, letterSpacing: UIFont.LetterSpacing.narrow, color: self.separatorColor)
 	}
     private func setupUIText() {
-        titleLabel?.attributedText = Utilities.attributedText(titleLabel.text ?? "", font: UIFont.mbeRegular15Font(), letterSpacing: UIFont.LetterSpacing.narrow, color: self.titleTextColor)
+        titleLabel?.attributedText = Utilities.attributedText(titleLabel.text ?? "", font: self.titleTextFont, letterSpacing: UIFont.LetterSpacing.narrow, color: self.titleTextColor)
     }
     @objc private func expandTableView(_ sender: UITapGestureRecognizer) {
 		if !isExpanded && wheelData.count>0 {
@@ -207,7 +234,7 @@ import UIKit
 			let index = tableView.indexPath(for: wheelCell)?.row ?? 1
 			if index > 0 && index <= self.wheelData.count {
 				let text = self.wheelData[index - 1]
-				wheelCell.titleLabel.attributedText = Utilities.attributedText(text, font: UIFont.mbeMedium36Font(), letterSpacing: UIFont.LetterSpacing.narrow, color: self.titleTextColor)
+				wheelCell.setText(text, isSelected: false)
 			}
 		}
 	}
@@ -221,13 +248,16 @@ extension ModesoWheel: UITableViewDataSource {
 			return WheelTableViewCell()
 		}
         guard indexPath.row > 0, indexPath.row <= wheelData.count else {
-            cell.configure(withHeight: self.rowHeight, backgroundColor: self.titlebgColor, title: nil, isSelected: false, selectColor: self.separatorColor, defaultColor: self.optionsTextColor)
+			cell.configureStyle(withHeight: self.rowHeight, backgroundColor: self.titlebgColor, selectColor: self.separatorColor, defaultColor: self.optionsTextColor, font: self.optionsTextFont)
+
+			cell.setText(nil, isSelected: false)
             return cell
         }
+		cell.configureStyle(withHeight: self.rowHeight, backgroundColor: self.bgColor, selectColor: self.separatorColor, defaultColor: self.optionsTextColor, font: self.optionsTextFont)
 		let isSelected = ((self.wheelData.index(of: self.getSelectedValue()) ?? 0) + 1) == indexPath.row
         let text = self.wheelData[indexPath.row - 1]
         
-        cell.configure(withHeight: self.rowHeight, backgroundColor: self.bgColor, title: text, isSelected: isSelected, selectColor: self.separatorColor, defaultColor: self.optionsTextColor)
+		cell.setText(text, isSelected: isSelected)
         return cell
     }
 	public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -236,6 +266,9 @@ extension ModesoWheel: UITableViewDataSource {
         }
         return self.wheelData.count + 2
     }
+	public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		return self.rowHeight
+	}
 }
 // MARK: - TableView Delegate
 extension ModesoWheel: UITableViewDelegate {
@@ -250,37 +283,12 @@ extension ModesoWheel: UITableViewDelegate {
 		}
 		if indexPath.row > 0 && indexPath.row <= self.wheelData.count {
 			let text = self.wheelData[indexPath.row - 1]
-			cell.titleLabel.attributedText = Utilities.attributedText(text, font: UIFont.mbeMedium36Font(), letterSpacing: UIFont.LetterSpacing.narrow, color: self.separatorColor)
+			cell.setText(text, isSelected: true)
 			self.updateSelectedValue(text)
 			self.delegate?.wheelDidSelectValue(self)
 		}
         
 		tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
-    }
-}
-
-private class WheelTableViewCell: UITableViewCell {
-	lazy var titleLabel: UILabel = {
-		let titleLabel = UILabel(frame: self.contentView.bounds)
-		titleLabel.textAlignment = .center
-		
-		return titleLabel
-	}()
-	
-	var customView: UIView?
-    
-	func configure(withHeight height: CGFloat, backgroundColor: UIColor, title: String?, isSelected: Bool, selectColor: UIColor, defaultColor: UIColor) {
-        DispatchQueue.main.async {
-            self.selectionStyle = .none
-            self.backgroundColor = backgroundColor
-            self.titleLabel.frame = CGRect(x: 0.0, y: 0.0, width: self.frame.width, height: height)
-            self.contentView.addSubview(self.titleLabel)
-            guard let text = title else {
-                self.titleLabel.text = ""
-                return
-            }
-            self.titleLabel.attributedText = Utilities.attributedText(text, font: UIFont.mbeMedium36Font(), letterSpacing: UIFont.LetterSpacing.narrow, color: isSelected ? selectColor : defaultColor)
-        }
     }
 }
 extension ModesoWheel: UIScrollViewDelegate {
@@ -299,7 +307,7 @@ extension ModesoWheel: UIScrollViewDelegate {
 		if let cellToHighlight = tableView.cellForRow(at: IndexPath(row: roundedRow, section: 0)) as? WheelTableViewCell {
 			if roundedRow > 0 && roundedRow <= self.wheelData.count {
 				let text = self.wheelData[roundedRow - 1]
-				cellToHighlight.titleLabel.attributedText = Utilities.attributedText(text, font: UIFont.mbeMedium36Font(), letterSpacing: UIFont.LetterSpacing.narrow, color: self.separatorColor)
+				cellToHighlight.setText(text, isSelected: true)
 				self.updateSelectedValue(text)
 				self.delegate?.wheelDidSelectValue(self)
 			}
@@ -318,7 +326,7 @@ extension ModesoWheel: UIScrollViewDelegate {
 				if let cellToUnhighlight = tableView.cellForRow(at: indexPath) as? WheelTableViewCell, (indexPath as NSIndexPath).row != indexOFHighletedCell.row {
 					if indexPath.row > 0 && indexPath.row <= self.wheelData.count {
 						let text = self.wheelData[indexPath.row - 1]
-						cellToUnhighlight.titleLabel.attributedText = Utilities.attributedText(text, font: UIFont.mbeMedium36Font(), letterSpacing: UIFont.LetterSpacing.narrow, color: self.optionsTextColor)
+						cellToUnhighlight.setText(text, isSelected: false)
 					}
 				}
 			}
@@ -328,7 +336,7 @@ extension ModesoWheel: UIScrollViewDelegate {
 		if let cellToHighlight = tableView.cellForRow(at: indexOFHighletedCell) as? WheelTableViewCell {
 			if indexOFHighletedCell.row > 0 && indexOFHighletedCell.row <= self.wheelData.count {
 				let text = self.wheelData[indexOFHighletedCell.row - 1]
-				cellToHighlight.titleLabel.attributedText = Utilities.attributedText(text, font: UIFont.mbeMedium36Font(), letterSpacing: UIFont.LetterSpacing.narrow, color: self.separatorColor)
+				cellToHighlight.setText(text, isSelected: true)
 				self.updateSelectedValue(text)
 				self.delegate?.wheelDidSelectValue(self)
 			}
