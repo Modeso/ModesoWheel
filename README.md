@@ -61,10 +61,15 @@ ModesoWheel was designed to be used as a standalone UIView.
 - Take an IBoutlet refrence for wheel view height constraint.
 
 You can set the following values using StroyBoard properties or from code:
-- inputTitle: string value that presents the title of data.
-- defaultInputValue: default value to be displayed.
-- background: cells background color.
-- selectionIndicatorColor: background color for separator view.
+- title: string value that presents the title of data.
+- defaultValue: default value to be displayed.
+- optionsBackgroundColor: cells background color.
+- selectColor: the color to be applied for selected value and select indicator.
+- optionsColor: the color for other options than selected value.
+- titleColor: the color to be applied for title text.
+- titleFont: the font to be applied for title text.
+- optionsFont: the font to be applied for all options text.
+- optionsHeight: float value that presents option cell height.
 
 ## Usage
 
@@ -91,7 +96,7 @@ Use this method to update wheel view height with the current height.
 ```swift
 func wheelTapped(_ view: ModesoWheel)
 ```
-This method called when tap on the wheel did become active.
+This method called when tap on the wheel and it did become active.
 
 ```swift
 func wheelDidSelectValue(_ view: ModesoWheel)
