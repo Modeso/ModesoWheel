@@ -36,14 +36,20 @@ class ViewController: UIViewController {
 	@IBOutlet weak var daysWheel: ModesoWheel!
     override func viewDidLoad() {
 		super.viewDidLoad()
+		configureWheels()
+        self.selectedValueLabel.text = Const.labelText + Const.genderInitalValue + Const.comma + Const.monthInitalValue + Const.comma + Const.dayInitalValue
+        dismissWheelWhenTappingAround()
+	}
+	func configureWheels() {
 		self.daysWheel.delegate = self
 		self.monthsWheel.delegate = self
 		self.genderWheel.delegate = self
+		self.daysWheel.optionsFont = UIFont.systemFont(ofSize: 30.0, weight: UIFont.Weight.medium)
+		self.monthsWheel.optionsFont = UIFont.systemFont(ofSize: 30.0, weight: UIFont.Weight.medium)
+		self.genderWheel.optionsFont = UIFont.systemFont(ofSize: 30.0, weight: UIFont.Weight.medium)
 		self.daysWheel.configure(withData: Const.days, defaultValue: Const.dayInitalValue)
 		self.monthsWheel.configure(withData: Const.months, defaultValue: Const.monthInitalValue)
 		self.genderWheel.configure(withData: Const.gender, defaultValue: Const.genderInitalValue)
-        self.selectedValueLabel.text = Const.labelText + Const.genderInitalValue + Const.comma + Const.monthInitalValue + Const.comma + Const.dayInitalValue
-        dismissWheelWhenTappingAround()
 	}
     
     func dismissWheelWhenTappingAround() {
