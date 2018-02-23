@@ -41,7 +41,7 @@ A framework based on [Modeso](https://www.modeso.ch)'s design for creating a whe
 ModesoWheel is available through [CocoaPods](https://cocoapods.org). To install, add the following line to your Podfile.
 
 ```
-pod ModesoWheel
+pod ‘ModesoWheel’, :git => ’https://github.com/Modeso/ModesoWheel.git'
 ```
 
 Or if you opt from using cocoapods, you can add the source files manually to your project.
