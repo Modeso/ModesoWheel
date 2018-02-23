@@ -113,19 +113,19 @@ import UIKit
 	}
     
 	var wheelData = [String]()
-	var separatorColor: UIColor = UIColor.mbeCoolBlue
-	var optionsTextColor: UIColor = UIColor.mbeSteel
+	var separatorColor: UIColor = UIColor.coolBlue
+	var optionsTextColor: UIColor = UIColor.steel
     public weak var delegate: ModesoWheelDelegate?
     // MARK: - Private Variables
     private var currentSelectedValue: String?
     private var titleText: String = ""
-	private var titleTextColor: UIColor = UIColor.mbeSteel
+	private var titleTextColor: UIColor = UIColor.steel
     private var rowHeight: CGFloat = Const.rowHeight
-    private var bgColor: UIColor = UIColor.mbeWhiteTwo
+    private var bgColor: UIColor = UIColor.whiteTwo
 	private var titlebgColor: UIColor = UIColor.white
 	public var isExpanded = false
-	private var titleTextFont: UIFont = UIFont.mbeRegular15Font()
-	private var optionsTextFont: UIFont = UIFont.mbeMedium36Font()
+	private var titleTextFont: UIFont = UIFont.wheelTitleFont()
+	private var optionsTextFont: UIFont = UIFont.wheelOptionsFont()
     
     // MARK: - Outlets
 	@IBOutlet weak var valueLabel: UILabel!

@@ -17,9 +17,9 @@ import UIKit
 	
 	private var height: CGFloat = 0.0
 	private var cellBackgroundColor: UIColor = UIColor.white
-	private var selectColor: UIColor = UIColor.mbeCoolBlue
-	private var defaultColor: UIColor = UIColor.mbeSteel
-	private var textFont: UIFont = UIFont.mbeMedium36Font()
+	private var selectColor: UIColor = UIColor.coolBlue
+	private var defaultColor: UIColor = UIColor.steel
+	private var textFont: UIFont = UIFont.wheelOptionsFont()
 	
 	func configureStyle(withHeight height: CGFloat, backgroundColor: UIColor, selectColor: UIColor, defaultColor: UIColor, font: UIFont) {
 		self.height = height
