@@ -58,7 +58,7 @@ ModesoWheel was designed to be used as a standalone UIView.
 - Set it's Custom Class to ModesoWheel.
 - Take an IBoutlet refrence for wheel view.
 - Set up wheel view constraint to have a height constraint.
-- Take an IBoutlet refrence for wheel view height constraint.
+- Take an IBoutlet refrence for wheel view height constraint to set it's constant value with value returned in "resizeWheel(_ view: ModesoWheel, to height: CGFloat)".
 
 You can set the following values using StroyBoard properties or from code:
 - title: string value that presents the title of data.
@@ -92,6 +92,13 @@ func resizeWheel(_ view: ModesoWheel, to height: CGFloat)
 ```
 This method is called when wheel view is expanding or dimissing.
 Use this method to update wheel view height with the current height.
+
+Example:
+```swift
+func resizeWheel(_ view: ModesoWheel, to height: CGFloat) {
+     self.wheelHeightConstraint.constant = height
+}
+```
 
 ```swift
 func wheelTapped(_ view: ModesoWheel)
