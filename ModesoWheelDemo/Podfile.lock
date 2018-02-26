@@ -1,0 +1,16 @@
+PODS:
+  - ModesoWheel (0.1.0)
+
+DEPENDENCIES:
+  - ModesoWheel (from `../`)
+
+EXTERNAL SOURCES:
+  ModesoWheel:
+    :path: ../
+
+SPEC CHECKSUMS:
+  ModesoWheel: 0bf4ba36ad2c0b8a2cd2b4a1ea286ac0358295ca
+
+PODFILE CHECKSUM: e261974fcd1bb06c7160206660e955ebf448a125
+
+COCOAPODS: 1.4.0

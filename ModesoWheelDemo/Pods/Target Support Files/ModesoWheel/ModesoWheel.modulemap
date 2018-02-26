@@ -1,0 +1,6 @@
+framework module ModesoWheel {
+  umbrella header "ModesoWheel-umbrella.h"
+
+  export *
+  module * { export * }
+}

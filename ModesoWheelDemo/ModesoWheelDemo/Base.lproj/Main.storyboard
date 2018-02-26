@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ModesoWheelDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3bo-xG-Pq0">
+                                <rect key="frame" x="0.0" y="20" width="375" height="350"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="BOq-sA-Jy9">
+                                        <rect key="frame" x="112.5" y="100" width="150" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="COJ-OK-njc"/>
+                                            <constraint firstAttribute="height" constant="150" id="vUm-td-K41"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.043137254901960784" green="0.0" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="BOq-sA-Jy9" firstAttribute="centerX" secondItem="3bo-xG-Pq0" secondAttribute="centerX" id="Gl3-WA-2Mj"/>
+                                    <constraint firstItem="BOq-sA-Jy9" firstAttribute="centerY" secondItem="3bo-xG-Pq0" secondAttribute="centerY" id="OLg-vD-gC9"/>
+                                    <constraint firstAttribute="height" constant="350" id="dj4-aM-cap"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SelectedValue: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xa0-n4-CDX">
+                                <rect key="frame" x="10" y="587" width="355" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="O4g-ku-uAg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <color key="textColor" red="0.043137254901960784" green="0.0" blue="0.32156862745098036" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2xx-2w-vTc" customClass="ModesoWheel" customModule="ModesoWheel">
+                                <rect key="frame" x="330" y="467" width="50" height="65"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="h1g-AZ-v9C"/>
+                                    <constraint firstAttribute="width" constant="50" id="opt-zb-fk1"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Day"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectColor">
+                                        <color key="value" red="0.043137254901960784" green="0.0" blue="0.32156862745098036" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="optionsHeight">
+                                        <real key="value" value="45"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h9r-uV-4Sq" customClass="ModesoWheel" customModule="ModesoWheel">
+                                <rect key="frame" x="5" y="467" width="125" height="65"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="fKJ-Ug-FeO"/>
+                                    <constraint firstAttribute="width" constant="110" id="sS9-ag-iaN"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Gender"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectColor">
+                                        <color key="value" red="0.043137254899999998" green="0.0" blue="0.32156862749999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9ym-0I-e8E" customClass="ModesoWheel" customModule="ModesoWheel">
+                                <rect key="frame" x="150" y="447" width="170" height="65"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="bxD-30-Nae"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Month"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectColor">
+                                        <color key="value" red="0.043137254899999998" green="0.0" blue="0.32156862749999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Xa0-n4-CDX" secondAttribute="bottom" constant="30" id="Bnh-jf-iIb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2xx-2w-vTc" secondAttribute="trailing" constant="10" id="GeR-79-aJp"/>
+                            <constraint firstItem="Xa0-n4-CDX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="JsN-Fw-90M"/>
+                            <constraint firstItem="3bo-xG-Pq0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Rrb-jF-SsG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="h9r-uV-4Sq" secondAttribute="bottom" constant="155" id="Tjw-Xv-vpJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2xx-2w-vTc" secondAttribute="bottom" constant="155" id="aKX-zT-QWh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="9ym-0I-e8E" secondAttribute="bottom" constant="155" id="dVV-eQ-Txy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3bo-xG-Pq0" secondAttribute="trailing" id="j8S-bO-UcK"/>
+                            <constraint firstItem="3bo-xG-Pq0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="kfh-kx-GKT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Xa0-n4-CDX" secondAttribute="trailing" constant="10" id="myR-ih-r2m"/>
+                            <constraint firstItem="2xx-2w-vTc" firstAttribute="leading" secondItem="9ym-0I-e8E" secondAttribute="trailing" constant="10" id="p8B-0f-AUp"/>
+                            <constraint firstItem="h9r-uV-4Sq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="v1S-2w-rhq"/>
+                            <constraint firstItem="9ym-0I-e8E" firstAttribute="leading" secondItem="h9r-uV-4Sq" secondAttribute="trailing" constant="10" id="zc9-4T-Tjt"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="daysWheel" destination="2xx-2w-vTc" id="JRA-eO-8av"/>
+                        <outlet property="daysWheelBottomConstraint" destination="aKX-zT-QWh" id="2KD-7j-hcm"/>
+                        <outlet property="daysWheelHeightConstraint" destination="h1g-AZ-v9C" id="qIY-mo-zMk"/>
+                        <outlet property="genderWheel" destination="h9r-uV-4Sq" id="WKu-Xx-FNM"/>
+                        <outlet property="genderWheelBottomConstraint" destination="Tjw-Xv-vpJ" id="uOd-u8-T6L"/>
+                        <outlet property="genderWheelHeightConstraint" destination="fKJ-Ug-FeO" id="Gr9-6p-8So"/>
+                        <outlet property="monthWheelHeightConstraint" destination="bxD-30-Nae" id="WlQ-9d-XIU"/>
+                        <outlet property="monthsWheel" destination="9ym-0I-e8E" id="0U5-DL-zUi"/>
+                        <outlet property="monthsWheelBottomConstraint" destination="dVV-eQ-Txy" id="x7Y-fE-Tc3"/>
+                        <outlet property="selectedValueLabel" destination="Xa0-n4-CDX" id="hgC-nr-Uxw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="118.29085457271366"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="logo" width="83" height="83"/>
+    </resources>
+</document>
