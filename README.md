@@ -1,5 +1,5 @@
 # ModesoWheel
-by [Modeso](https://www.modeso.ch)
+by [Modeso](http://www.modeso.ch)
 
 [![CocoaPods Compatible](https://img.shields.io/badge/Pod-compatible-4BC51D.svg
 )](https://cocoapods.org)
@@ -7,7 +7,7 @@ by [Modeso](https://www.modeso.ch)
 [![Twitter](https://img.shields.io/badge/twitter-@modeso_ch-0B0032.svg?style=flat)](https://twitter.com/modeso_ch)
 
 
-A framework based on [Modeso](https://www.modeso.ch)'s design for creating a wheel selection control. It can be used for any kind of options list. 
+A framework based on [Modeso](http://www.modeso.ch)'s design for creating a wheel selection control. It can be used for any kind of options list. 
 
 ## Overview
 
